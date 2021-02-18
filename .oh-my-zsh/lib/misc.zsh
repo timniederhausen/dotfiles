@@ -15,11 +15,18 @@ if [[ $DISABLE_MAGIC_FUNCTIONS != true ]]; then
   done
 fi
 
+# Get rid of annoying second-chance questions..
+setopt rmstarsilent
+
 ## jobs
 setopt long_list_jobs
 
 env_default 'PAGER' 'less'
 env_default 'LESS' '-R'
+env_default 'EDITOR' 'joe --autoindent --wordwrap -nobackups'
+
+# Locale settings
+export LANG=en_US.UTF-8
 
 ## super user alias
 alias _='sudo '
@@ -33,3 +40,12 @@ fi
 
 # recognize comments
 setopt interactivecomments
+
+# common commands
+alias joe='joe --autoindent --wordwrap -nobackups'
+alias viewcrt='openssl x509 -text -noout -in'
+
+# Display a SSH key's fingerprint
+function fingerprint() {
+    ssh-keygen -lf $1 | awk '{print $2,$NF}'
+}

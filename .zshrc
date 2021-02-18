@@ -1,14 +1,15 @@
-ZSH=$HOME/.zsh
+export ZSH=$HOME/.oh-my-zsh
 
-# Load and run compinit
-autoload -U compinit
-compinit -i
+ZSH_THEME="gentoo"
 
+DISABLE_AUTO_UPDATE="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-for config_file ($ZSH/*.zsh); do
-  source $config_file
-done
+plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
+# legacy customization stuff
 if [ -f ~/.zshrc-p ]; then
-	source ~/.zshrc-p
+  source ~/.zshrc-p
 fi
