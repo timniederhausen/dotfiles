@@ -5,7 +5,7 @@ export CLICOLOR=1
 
 # Enable ls colors
 # Find the option for using colors in ls, depending on the version: Linux or BSD
-if [[ "$(uname -s)" == "FreeBSD" ]]; then
+if [[ "$(uname -s)" == "FreeBSD" ]] || [[ "$(uname -s)" == "Darwin" ]]; then
   alias ls='ls -o'
 else
   alias ls='ls --color'
