@@ -13,5 +13,5 @@ git read-tree --prefix=.oh-my-zsh/ -u ohmyzsh/master
 ### Updating
 
 ```
-git pull -s subtree ohmyzsh master
+git subtree pull -P .oh-my-zsh ohmyzsh master
 ```
