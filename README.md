@@ -1,5 +1,10 @@
 # dotfiles
 
+## Installation
+
+* FreeBSD: `fetch -o- https://github.com/timniederhausen/dotfiles/archive/refs/heads/master.tar.gz | tar xf - --strip-components=1`
+* Linux: `wget -qO- https://github.com/timniederhausen/dotfiles/archive/refs/heads/master.tar.gz | tar xzf - --strip-components=1`
+
 ## oh-my-zsh subtree
 
 ### Setup
