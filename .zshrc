@@ -5,6 +5,9 @@ ZSH_THEME="gentoo"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+zstyle ':vcs_info:*' check-for-changes false
+zstyle ':vcs_info:*' enable cvs svn
+
 plugins=(git common-aliases)
 
 source $ZSH/oh-my-zsh.sh
