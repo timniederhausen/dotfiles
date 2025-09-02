@@ -32,12 +32,24 @@ if [[ -n "${terminfo[knp]}" ]]; then
 fi
 
 # Start typing + [Up-Arrow] - find history forward
+autoload -U history-beginning-search-backward
+zle -N history-beginning-search-backward
+
+bindkey -M emacs "^[[A" history-beginning-search-backward
+bindkey -M viins "^[[A" history-beginning-search-backward
+bindkey -M vicmd "^[[A" history-beginning-search-backward
 if [[ -n "${terminfo[kcuu1]}" ]]; then
   bindkey -M emacs "${terminfo[kcuu1]}" history-beginning-search-backward
   bindkey -M viins "${terminfo[kcuu1]}" history-beginning-search-backward
   bindkey -M vicmd "${terminfo[kcuu1]}" history-beginning-search-backward
 fi
 # Start typing + [Down-Arrow] - find history backward
+autoload -U history-beginning-search-forward
+zle -N history-beginning-search-forward
+
+bindkey -M emacs "^[[B" history-beginning-search-forward
+bindkey -M viins "^[[B" history-beginning-search-forward
+bindkey -M vicmd "^[[B" history-beginning-search-forward
 if [[ -n "${terminfo[kcud1]}" ]]; then
   bindkey -M emacs "${terminfo[kcud1]}" history-beginning-search-forward
   bindkey -M viins "${terminfo[kcud1]}" history-beginning-search-forward
@@ -104,7 +116,7 @@ bindkey '^r' history-incremental-search-backward      # [Ctrl-r] - Search backwa
 bindkey ' ' magic-space                               # [Space] - don't do history expansion
 
 
-# Edit the current command line in $EDITOR
+# Edit the current command line in $VISUAL (or $EDITOR / `vi` if not set)
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
