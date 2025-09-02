@@ -8,7 +8,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 zstyle ':vcs_info:*' check-for-changes false
 zstyle ':vcs_info:*' enable cvs svn
 
-plugins=(git common-aliases)
+# option stacking - beware before completion
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+plugins=(git common-aliases docker)
 
 source $ZSH/oh-my-zsh.sh
 
